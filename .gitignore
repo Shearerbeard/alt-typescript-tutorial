@@ -1,5 +1,6 @@
 .idea
 *.js
+*.js.map
 !webpack-config.js
 target
 typings
