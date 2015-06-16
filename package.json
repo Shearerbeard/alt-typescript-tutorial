@@ -1,0 +1,47 @@
+{
+  "name": "alt-typescript-todomvc",
+  "version": "1.0.0",
+  "description": "Alt library demo ported to typescript",
+  "main": "app.ts",
+  "scripts": {
+	"postinstall": "tsd reinstall -o -s",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --port 9000 --hot --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shearerbeard/alt-typescript-todomvc.git"
+  },
+  "keywords": [
+    "Alt",
+    "flux",
+    "react",
+    "typescript",
+    "javascript",
+    "es6",
+    "mvc",
+    "todomvc",
+    "clientside"
+  ],
+  "author": "Mike Shearer <shearerbeard@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shearerbeard/alt-typescript-todomvc/issues"
+  },
+  "homepage": "https://github.com/Shearerbeard/alt-typescript-todomvc#readme",
+  "devDependencies": {
+    "awesome-typescript-loader": "^0.5.4",
+    "node-libs-browser": "^0.5.2",
+    "react-hot-loader": "^1.2.7",
+    "ts-jsx-loader": "^0.2.0",
+    "tsd": "^0.6.1",
+    "webpack": "^1.9.10",
+    "webpack-dev-server": "^1.9.0"
+  },
+  "dependencies": {
+    "alt": "^0.16.10",
+    "eventemitter": "^0.3.3",
+    "object-assign": "^3.0.0",
+    "react": "^0.13.3"
+  }
+}

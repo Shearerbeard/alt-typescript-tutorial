@@ -1,0 +1,9 @@
+.idea
+*.js
+!webpack-config.js
+target
+typings
+!typings/react/react-jsx.d.ts
+!typings/alt/alt.d.ts
+npm-debug.log
+node_modules
