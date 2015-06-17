@@ -6,9 +6,9 @@
 
 import * as React from "react";
 import {alt} from "./alt";
-import {MainComponent} from "./components/Main";
+import {Locations} from "./components/Locations";
 
 React.render(
-    React.jsx(`<MainComponent />`),
+    React.jsx(`<Locations />`),
     document.getElementById("app")
 );

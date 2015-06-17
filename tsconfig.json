@@ -19,6 +19,7 @@
         "./src/actions/LocationActions.ts",
         "./src/alt.ts",
         "./src/app.ts",
+        "./src/components/Locations.ts",
         "./src/components/Main.ts",
         "./src/sources/LocationSource.ts",
         "./src/stores/AbstractStoreModel.ts",

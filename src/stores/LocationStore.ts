@@ -23,6 +23,7 @@ interface State {
 interface ExtendedStore extends AltJS.AltStore<State> {
   getLocation(id:string):Location;
   fetchLocations():void;
+  isLoading:boolean;
 }
 
 class LocationStore extends AbstractStoreModel<State> implements State {

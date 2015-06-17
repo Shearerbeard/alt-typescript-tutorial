@@ -64,6 +64,20 @@ declare module "alt/utils/chromeDebug" {
 	export = chromeDebug;
 }
 
+declare module "alt/AltContainer" {
+
+  import * as React from "react";
+
+  interface ContainerProps {
+    store:AltJS.AltStore<any>
+  }
+
+  class AltContainer extends React.Component<ContainerProps, any> {
+  }
+  
+  export = AltContainer;
+}
+
 declare module "alt" {
 
   import {Dispatcher} from "flux";

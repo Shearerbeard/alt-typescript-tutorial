@@ -13,6 +13,7 @@ function getState():State {
   }
 }
 
+
 export class MainComponent extends React.Component<any, State> {
   constructor() {
     this.state = getState();

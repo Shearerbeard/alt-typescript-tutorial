@@ -4,9 +4,9 @@
   "description": "Typescript port of the [Alt](alt.js.org] tutorial",
   "main": "app.ts",
   "scripts": {
-	"postinstall": "tsd reinstall -o -s",
+    "postinstall": "tsd reinstall -o -s",
     "test": "echo \"Error: no test specified\" && exit 1",
-	"start": "webpack-dev-server --port 9000 --hot --inline"
+    "start": "webpack-dev-server --port 9000 --hot --inline"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   "homepage": "https://github.com/Shearerbeard/alt-typescript-tutorial#readme",
   "dependencies": {
     "alt": "^0.16.10",
+    "bluebird": "^2.9.30",
     "eventemitter3": "^1.1.1",
     "object-assign": "^3.0.0",
     "react": "^0.13.3"
