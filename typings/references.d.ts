@@ -2,6 +2,7 @@
 /// <reference path="./tsd.d.ts"/>
 /// <reference path="./react/react-jsx.d.ts"/>
 /// <reference path="./alt/alt.d.ts"/>
+/// <reference path="./bluebird/blubird-es6.d.ts"/>
 
 
 declare module "react/lib/Object.assign" {
