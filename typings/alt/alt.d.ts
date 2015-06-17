@@ -12,7 +12,8 @@
 */
 declare module AltJS {
   export interface StoreModel<S> {
-    bindActions( ...actions:Array<Object>);
+    bindActions?( ...actions:Array<Object>);
+    exportPublicMethods?<M>(exportConfig:M):void;
     getState():S;
   }
 
@@ -52,7 +53,7 @@ declare module "alt" {
     flush():Object;
     recycle( ...store:Array<AltJS.AltStore<any>>);
     rollback();
-    dispatch(action:Action<any>, data:Object, details:any);
+    dispatch(action?:Action<any>, data?:Object, details?:any);
     addActions(actionsName:string, actions:ActionsClass);
     addStore(name:string, store:StoreModel<any>, saveStore?:boolean);
     getStore(name:string):AltJS.AltStore<any>;
