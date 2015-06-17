@@ -43,9 +43,9 @@ class AllLocations extends React.Component<AllLocationsProps, any> {
   }
 
   _addFave(event: React.SyntheticEvent) {
-    let target:HTMLButtonElement;
+    let target:HTMLButtonElement = <HTMLButtonElement>event.target;
     let location = locationStore.getLocation(
-      target.getAttribute("data-id")
+      parseInt(target.getAttribute("data-id"))
     );
     locationActions.favoriteLocation(location);
   }
@@ -58,7 +58,7 @@ class AllLocations extends React.Component<AllLocationsProps, any> {
         `)
     }
 
-    if(locationStore.isLoading) {
+    if(locationStore.isLoading()) {
       return React.jsx(`
           <div>
             <img src="ajax-loader.gif" />

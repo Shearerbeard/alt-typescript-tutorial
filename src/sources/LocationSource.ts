@@ -21,13 +21,9 @@ let LocationSource:AltJS.Source = {
   fetchLocations() {
     return {
       remote() {
-        console.warn("Remote");
         return new Promise((res, rej) => {
           setTimeout(() => {
-            console.warn("Timeout clear");
             if(true) {
-              console.warn(mockData);
-              console.warn(res);
               res(mockData);
             } else {
               rej("Things have broken");

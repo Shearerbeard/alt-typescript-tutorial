@@ -5,7 +5,7 @@ import {locationSource} from "../sources/LocationSource";
 import {favoritesStore} from "./FavoritesStore";
 
 export interface Location {
-  id?:string;
+  id?:number;
   name?:string;
   has_favorite?:boolean;
 }
@@ -21,9 +21,9 @@ interface State {
 * export Async
 */
 interface ExtendedStore extends AltJS.AltStore<State> {
-  getLocation(id:string):Location;
+  getLocation(id:number):Location;
   fetchLocations():void;
-  isLoading:boolean;
+  isLoading():boolean;
 }
 
 class LocationStore extends AbstractStoreModel<State> implements State {
@@ -94,7 +94,7 @@ class LocationStore extends AbstractStoreModel<State> implements State {
 
   }
 
-  getLocation(id:string) {
+  getLocation(id:number) {
     let locations = this.getState().locations;
     for(var i = 0; i < locations.length; i++) {
       if(locations[i].id === id) {
