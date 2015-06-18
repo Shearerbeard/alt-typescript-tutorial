@@ -7,6 +7,6 @@ import chromeDebug = require('alt/utils/chromeDebug');
 
 let altInstance = new Alt();
 
-chromeDebug(alt);
+chromeDebug(altInstance);
 
 export const alt = altInstance;
