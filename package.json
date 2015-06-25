@@ -4,7 +4,7 @@
   "description": "Typescript port of the [Alt](alt.js.org] tutorial",
   "main": "app.ts",
   "scripts": {
-    "postinstall": "tsd reinstall -o -s",
+    "postinstall": "tsd update",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --port 9000 --hot --inline"
   },
