@@ -26,12 +26,13 @@ interface ExtendedStore extends AltJS.AltStore<State> {
   isLoading():boolean;
 }
 
-class LocationStore extends AbstractStoreModel<State> implements State {
+class LocationStore extends AbstractStoreModel<State> {
 
   locations: Array<Location>;
   errorMessage:string;
 
   constructor() {
+    super();
     this.locations = [];
     this.errorMessage = null;
 
@@ -48,8 +49,6 @@ class LocationStore extends AbstractStoreModel<State> implements State {
     })
 
     this.exportAsync(locationSource);
-
-    super();
   }
 
   handleUpdateLocations(locations:Array<Location>) {

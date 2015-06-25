@@ -10,7 +10,7 @@ declare module AltJS {
 
   export interface StoreModel<S> {
     bindActions?( ...actions:Array<Object>);
-    exportPublicMethods?<M>(exportConfig:M):void;
+    exportPublicMethods?(exportConfig:any):void;
     getState?():S;
     exportAsync?(source:Source);
     waitFor?(store:AltStore<any>):void;
