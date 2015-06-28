@@ -4,7 +4,7 @@ import * as Promise from "bluebird";
 import {locationActions} from "../actions/LocationActions";
 import {Location} from "../stores/LocationStore"
 
-const mockData = [
+const mockData:Location[] = [
   { id: 0, name: 'Abu Dhabi' },
   { id: 1, name: 'Berlin' },
   { id: 2, name: 'Bogota' },
@@ -21,33 +21,31 @@ const mockData = [
 ];
 
 let LocationSource:AltJS.Source = {
-  fetchLocations():AltJS.SourceModel {
-    console.warn("Called Fetch Locations");
-    return {
-      remote() {
-        console.warn("Remote");
-        return new Promise<any>((res, rej) => {
-          setTimeout(() => {
-            if(true) {
-              res(mockData);
-            } else {
-              rej("Things have broken");
-            }
-          }, 250)
-        })
-      },
-      local(state) {
-        //TODO : Figure out why local doesn't work =(
-        console.warn("calledlocal");
-        console.warn(state);
-        console.warn(mockData);
-        return mockData;
-      },
-      success:locationActions.updateLocations,
-      error:locationActions.locationsFailed,
-      loading:locationActions.fetchLocations,
-      shouldFetch:(() => true)
-    }
+  fetchLocations():AltJS.SourceModel<Location[]> {
+      return {
+          remote() {
+              console.warn("Remote");
+              return new Promise<Array<Location>>((res, rej) => {
+                  setTimeout(() => {
+                      if(true) {
+                          res(mockData);
+                      } else {
+                          rej("Things have broken");
+                      }
+                  }, 250)
+              })
+          },
+          local(state):Location[] {
+              console.warn("Local");
+              console.warn(state);
+              //TODO : Figure out why local doesn't work =(
+              return mockData;
+          },
+          success:locationActions.updateLocations,
+          error:locationActions.locationsFailed,
+          loading:locationActions.fetchLocations,
+          shouldFetch:() => true
+      };
   }
 };
 

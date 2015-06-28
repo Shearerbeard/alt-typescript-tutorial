@@ -4,7 +4,7 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 ///<reference path="../react/react.d.ts"/>
-///<reference path="../bluebird/blubird-es6.d.ts" />
+///<reference path="../es6-promise/es6-promise.d.ts" />
 
 declare module AltJS {
 
@@ -51,16 +51,15 @@ declare module AltJS {
     displayName?:string;
   }
 
-  export type Source = {[name:string]:() => SourceModel};
+  export type Source = {[name:string]: () => SourceModel<any>};
 
-
-  export interface SourceModel {
-    local(...args:Array<any>):any;
-    remote(...args:Array<any>):any;
-    shouldFetch?(...args:Array<any>):boolean;
-    loading: (action:Action<any>) => void;
-    success:(action:Action<any>) => void;
-    error:(action:Action<any>) => void;
+  export interface SourceModel<S> {
+    local(state:any):any;
+    remote(state:any):Promise<S>;
+    shouldFetch?(fetchFn:(...args:Array<any>) => boolean):void;
+    loading?:(args:any) => void;
+    success?:(state:S) => void;
+    error?:(args:any) => void;
     interceptResponse?(response:any, action:Action<any>, ...args:Array<any>):any;
   }
 

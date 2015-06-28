@@ -10,6 +10,9 @@
     },
     "flux/flux.d.ts": {
       "commit": "8b7cc13f6dbabd0a49de7ccba75c342160e600ad"
+    },
+    "es6-promise/es6-promise.d.ts": {
+      "commit": "6f04d25ad38982d372cc3cda62fa4c0eef9e24d7"
     }
   }
 }
