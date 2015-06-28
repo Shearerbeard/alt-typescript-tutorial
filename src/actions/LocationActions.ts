@@ -2,7 +2,7 @@ import {alt} from "../alt";
 import {AbstractActions} from "./AbstractActions";
 
 interface Actions {
-  updateLoacations(locations:any):void;
+  updateLocations(locations:any):void;
   fetchLocations():void;
   locationsFailed(errorMessage:any):void;
   favoriteLocation(location:any):void;
@@ -10,19 +10,24 @@ interface Actions {
 
 class LocationActions extends AbstractActions implements Actions {
 
-  updateLoacations(locations:any):void {
+  updateLocations(locations:any):void {
+    console.warn("Update Locations!!!");
+    console.warn(locations);
     this.dispatch(locations);
   }
 
   fetchLocations() {
+    console.warn("Fetch Locations");
     this.dispatch();
   }
 
   locationsFailed(errorMessage:any) {
+    console.warn("Failed");
     this.dispatch(errorMessage);
   }
 
   favoriteLocation(location:any) {
+    console.warn("Favorite");
     this.dispatch(location);
   }
 

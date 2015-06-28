@@ -1,5 +1,8 @@
+///<reference path="../../typings/references.d.ts"/>
+
 import * as Promise from "bluebird";
 import {locationActions} from "../actions/LocationActions";
+import {Location} from "../stores/LocationStore"
 
 const mockData = [
   { id: 0, name: 'Abu Dhabi' },
@@ -18,10 +21,12 @@ const mockData = [
 ];
 
 let LocationSource:AltJS.Source = {
-  fetchLocations() {
+  fetchLocations():AltJS.SourceModel {
+    console.warn("Called Fetch Locations");
     return {
       remote() {
-        return new Promise((res, rej) => {
+        console.warn("Remote");
+        return new Promise<any>((res, rej) => {
           setTimeout(() => {
             if(true) {
               res(mockData);
@@ -31,12 +36,17 @@ let LocationSource:AltJS.Source = {
           }, 250)
         })
       },
-      local() {
-        return null;
+      local(state) {
+        //TODO : Figure out why local doesn't work =(
+        console.warn("calledlocal");
+        console.warn(state);
+        console.warn(mockData);
+        return mockData;
       },
-      success:locationActions.updateLoacations,
+      success:locationActions.updateLocations,
       error:locationActions.locationsFailed,
-      loading:locationActions.fetchLocations
+      loading:locationActions.fetchLocations,
+      shouldFetch:(() => true)
     }
   }
 };

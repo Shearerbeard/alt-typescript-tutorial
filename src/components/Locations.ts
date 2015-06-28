@@ -5,6 +5,8 @@ import {locationStore, Location} from "../stores/LocationStore";
 import {favoritesStore} from "../stores/FavoritesStore";
 import {locationActions} from "../actions/LocationActions";
 
+console.warn(locationActions);
+
 interface FavoritesProps {
   locations?:Array<Location>;
 }
@@ -93,10 +95,12 @@ class AllLocations extends React.Component<AllLocationsProps, any> {
 export class Locations extends React.Component<any, any> {
 
   componentDidMount() {
+    console.warn("Did mount - fetching locations");
     locationStore.fetchLocations();
   }
 
   render() {
+    console.warn(locationStore);
     return React.jsx(`
         <div>
 

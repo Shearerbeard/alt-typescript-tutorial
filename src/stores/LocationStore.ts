@@ -38,7 +38,7 @@ class LocationStore extends AbstractStoreModel<State> {
 
     //TODO: pass state generics to make sure methods/actions expect the same type
     this.bindListeners({
-      handleUpdateLocations: locationActions.updateLoacations,
+      handleUpdateLocations: locationActions.updateLocations,
       handleFetchLocations: locationActions.fetchLocations,
       handleLocationsFailed: locationActions.locationsFailed,
       setFavorites: locationActions.favoriteLocation
@@ -46,27 +46,30 @@ class LocationStore extends AbstractStoreModel<State> {
 
     this.exportPublicMethods({
       getLocation: this.getLocation
-    })
+    });
 
     this.exportAsync(locationSource);
   }
 
   handleUpdateLocations(locations:Array<Location>) {
+    console.warn("handle Update");
     this.locations = locations;
     this.errorMessage = null;
   }
 
   handleFetchLocations() {
+    console.warn("Handle Fetch");
     this.locations = [];
   }
 
   handleLocationsFailed(errorMessage:string) {
+    console.warn("Handle Failed");
     this.errorMessage = errorMessage;
   }
 
   resetAllFavorites() {
     this.locations = this.locations.map((location) => {
-      return {
+      return <Location>{
         id: location.id,
         name: location.name,
         has_favorite: false
